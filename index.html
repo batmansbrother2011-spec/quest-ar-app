@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- A-Frame core library -->
+    <script src="https://cdn.jsdelivr.net/npm/aframe@1.3.0/dist/a-frame.min.js"></script>
+    <link rel="stylesheet" href="/public/style.css">
+    <title>Quest AR App</title>
+</head>
+<body>
+
+    <h1>Build Your First WebXR App</h1>
+
+    <div id="status-bar">
+        <span id="map-status">Wait for the initialization prompt to start scanning.</span>
+        <button id="start-btn" disabled>Start Scan</button>
+        <button id="directions-btn" disabled>Get Directions</button>
+    </div>
+
+    <!-- The A-Frame scene will be rendered here -->
+    <a-scene id="ar-scene"
+        vr-mode-type="immersive-vr"
+        canvas-id="canvas"
+        >
+        <!-- Load your AR world asset -->
+        <a-assets>
+            <img id="office-image" src="/ar-worlds/default-start-glue.glb"/>
+        </a-assets>
+
+        <!-- The initial "glue" stick to help set up the scan -->
+        <a-entity gizmo-controls geometry="primitive: sphere; scale: 0.5" 
+                   material="color: #00b4d8; opacity: 0.7" 
+                   position="-2 -1.8 3.2"></a-entity>
+    </a-scene>
+
+    <script src="/public/script.js"></script>
+</body>
+</html>
